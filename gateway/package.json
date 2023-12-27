@@ -1,0 +1,18 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "Food to Go gateway microservice",
+  "main": "index.js",
+  "scripts": {
+    "dev": "mesh dev",
+    "start": "mesh start",
+    "build": "mesh build"
+  },
+  "author": "Astra Studio",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.88.4",
+    "@graphql-mesh/graphql": "^0.96.2",
+    "graphql": "^16.8.1"
+  }
+}

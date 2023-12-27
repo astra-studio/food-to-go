@@ -1,0 +1,8 @@
+sources:
+  - name: Auth
+    handler:
+      graphql:
+        endpoint: http://auth-srv.default.svc.cluster.local:3000/graphql
+serve:
+  port: 3000
+  playground: true

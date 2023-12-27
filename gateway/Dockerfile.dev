@@ -1,0 +1,11 @@
+FROM node:latest
+
+ENV CI=true
+
+WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+COPY .meshrc.yaml .
+
+CMD [ "npm", "run", "dev" ]

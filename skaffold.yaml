@@ -1,0 +1,26 @@
+apiVersion: skaffold/v4beta8
+kind: Config
+metadata:
+  name: code
+build:
+  artifacts:
+    - image: astra-studio/food-auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
+    - image: astra-studio/food-gateway
+      context: gateway
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - dest: .
+            src: "**/.meshrc.yaml"
+manifests:
+  rawYaml:
+    - infra/k8s/auth-depl.yaml
+    - infra/k8s/gateway-depl.yaml
