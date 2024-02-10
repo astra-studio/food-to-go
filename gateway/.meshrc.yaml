@@ -3,6 +3,10 @@ sources:
     handler:
       graphql:
         endpoint: http://auth-srv.default.svc.cluster.local:3000/graphql
+  - name: Meals
+    handler:
+      graphql:
+        endpoint: http://meals-srv.default.svc.cluster.local:3000/graphql
 serve:
-  port: 3000
+  port: 4000
   playground: true

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: casdoor-depl
+  name: meals-depl
 spec:
   selector:
     matchLabels:
-      app: casdoor
+      app: meals
   template:
     metadata:
       labels:
-        app: casdoor
+        app: meals
     spec:
       containers:
-        - name: casdoor
-          image: casbin/casdoor-all-in-one
+        - name: meals
+          image: astra-studio/food-meals
           resources:
             limits:
               memory: "250Mi"
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: casdoor-srv
+  name: meals-srv
 spec:
   selector:
-    app: casdoor
+    app: meals
   ports:
-    - name: casdoor
+    - name: meals
       protocol: TCP
       port: 3000
       targetPort: 3000

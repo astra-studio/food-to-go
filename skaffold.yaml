@@ -20,8 +20,16 @@ build:
         manual:
           - dest: .
             src: "**/.meshrc.yaml"
+    - image: astra-studio/food-meals
+      context: meals
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
 manifests:
   rawYaml:
     - infra/k8s/auth-depl.yaml
     - infra/k8s/gateway-depl.yaml
-    - infra/k8s/casdoor-depl.yaml
+    - infra/k8s/meals-depl.yaml
