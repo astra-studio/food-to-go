@@ -28,8 +28,23 @@ build:
         manual:
           - dest: .
             src: "src/**/*.ts"
+  local:
+    push: false
+# deploy:
+#   helm:
+#     releases:
+#       - name: authentik
+#         chartPath: authentik/authentik
+#         repo: https://charts.goauthentik.io
+#         valuesFiles:
+#           - infra/configs/authentik/values.yaml
 manifests:
   rawYaml:
     - infra/k8s/auth-depl.yaml
     - infra/k8s/gateway-depl.yaml
     - infra/k8s/meals-depl.yaml
+    - infra/k8s-dev/traefik-depl.yaml
+    - infra/k8s-dev/traefik-account.yaml
+    - infra/k8s-dev/traefik-role-binding.yaml
+    - infra/k8s-dev/traefik-role.yaml
+    
