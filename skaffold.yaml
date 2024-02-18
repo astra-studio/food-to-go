@@ -47,4 +47,3 @@ manifests:
     - infra/k8s-dev/traefik-account.yaml
     - infra/k8s-dev/traefik-role-binding.yaml
     - infra/k8s-dev/traefik-role.yaml
-    
