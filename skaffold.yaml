@@ -1,7 +1,7 @@
 apiVersion: skaffold/v4beta8
 kind: Config
 metadata:
-  name: code
+  name: food-to-go
 build:
   artifacts:
     - image: astra-studio/food-auth
