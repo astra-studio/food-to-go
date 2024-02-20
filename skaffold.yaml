@@ -24,4 +24,12 @@ manifests:
   rawYaml:
     - infra/k8s/auth-depl.yaml
     - infra/k8s/gateway-depl.yaml
-    - infra/k8s/casdoor-depl.yaml
+  helm:
+    releases:
+      - name: traefik
+        repo: https://traefik.github.io/charts
+        remoteChart: traefik
+        namespace: traefik
+        createNamespace: true
+        valuesFiles:
+          - "infra/k8s/charts/traefik/values.yaml"
