@@ -27,6 +27,7 @@ manifests:
   helm:
     releases:
       - name: traefik
+        upgradeOnChange: true
         repo: https://traefik.github.io/charts
         remoteChart: traefik
         namespace: traefik
