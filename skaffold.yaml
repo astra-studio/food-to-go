@@ -20,6 +20,10 @@ build:
         manual:
           - dest: .
             src: "**/.meshrc.yaml"
+deploy:
+  logs:
+    jsonParse:
+      fields: ["message", "severity"]
 manifests:
   rawYaml:
     - infra/k8s/auth-depl.yaml
@@ -34,3 +38,23 @@ manifests:
         createNamespace: true
         valuesFiles:
           - "infra/k8s/charts/traefik/values.yaml"
+      - name: opensearch-operator
+        repo: https://opensearch-project.github.io/opensearch-k8s-operator/
+        remoteChart: opensearch-operator
+        namespace: opensearch
+        createNamespace: true
+      - name: opensearch-dashboards
+        repo: https://opensearch-project.github.io/helm-charts
+        remoteChart: opensearch-dashboards
+        namespace: opensearch
+        createNamespace: true
+      - name: opensearch
+        repo: https://opensearch-project.github.io/helm-charts
+        remoteChart: opensearch
+        namespace: opensearch
+        createNamespace: true
+      - name: fluentd
+        repo: https://fluent.github.io/helm-charts
+        remoteChart: fluentd
+        namespace: fluentd
+        createNamespace: true
